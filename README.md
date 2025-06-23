@@ -110,6 +110,61 @@ This server can be integrated with MCP-compatible AI assistants. The server prov
 - **Version**: 1.0.0
 - **Available Tools**: send-device-info
 
+## Cursor Integration
+
+### MCP Configuration
+
+Add to your Cursor settings (`.cursor/mcp.json`):
+
+**Production:**
+
+```json
+{
+  "mcp.servers": {
+    "iot-server": {
+      "command": "node",
+      "args": ["dist/index.js"],
+      "cwd": "/path/to/your/iot-mcp-server/server"
+    }
+  }
+}
+```
+
+**Development:**
+
+```json
+{
+  "mcp.servers": {
+    "iot-server": {
+      "command": "pnpm",
+      "args": ["dev"],
+      "cwd": "/path/to/your/iot-mcp-server/server"
+    }
+  }
+}
+```
+
+### Usage in Cursor
+
+Once configured, use in Cursor chat:
+
+```
+@iot-server send device info
+```
+
+Or simply:
+
+```
+can you send device info
+```
+
+**Setup checklist:**
+
+1. Build the server: `cd server && pnpm build`
+2. Start UDP simulator: `cd node-udp-simulator && npm start`
+3. Update `cwd` path to your project location
+4. Restart Cursor after configuration
+
 ## Development
 
 - **TypeScript Configuration**: Both projects use TypeScript with proper tsconfig
