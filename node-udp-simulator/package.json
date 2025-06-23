@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "@types/node": "^24.0.0"
+  },
+  "scripts": {
+    "start": "ts-node udpServer.ts"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.2"
+  }
+}
